@@ -10,12 +10,19 @@ const App = () => {
 
       </div>
     </TopContainer>
+
     <FilterContainer>
       <Button>All</Button>
       <Button>Breakfast</Button>
       <Button>Lunch</Button>
       <Button>Dinner</Button>
     </FilterContainer>
+
+    <FoodCardsContainer>
+      <FoodCard>
+
+      </FoodCard>
+    </FoodCardsContainer>
   </Container>;
 };
 
@@ -47,11 +54,20 @@ const FilterContainer=styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-`
+  padding-bottom: 40px;
+`;
 const Button=styled.button`
   background: #FF4343;
   border-radius: 5px;
   padding: 6px 12px;
   border: none;
   color: white;
-`
+`;
+const FoodCardsContainer=styled.section`
+  height: calc(100vh - 210px);
+  background-image: url("/bg.png");
+  background-size: cover;
+`;
+const FoodCard=styled.div`
+  
+`;
