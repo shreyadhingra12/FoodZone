@@ -10,6 +10,12 @@ const App = () => {
 
       </div>
     </TopContainer>
+    <FilterContainer>
+      <Button>All</Button>
+      <Button>Breakfast</Button>
+      <Button>Lunch</Button>
+      <Button>Dinner</Button>
+    </FilterContainer>
   </Container>;
 };
 
@@ -17,7 +23,7 @@ export default App;
 const Container=styled.div`
   max-width: 1200px;
   margin: 0 auto;
-`
+`;
 const TopContainer=styled.div`
   min-height: 140px;
   display: flex;
@@ -36,4 +42,16 @@ const TopContainer=styled.div`
       padding: 0 10px;
     }
   }
+`;
+const FilterContainer=styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+`
+const Button=styled.button`
+  background: #FF4343;
+  border-radius: 5px;
+  padding: 6px 12px;
+  border: none;
+  color: white;
 `
