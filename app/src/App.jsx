@@ -1,5 +1,27 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components'
+
+const BASE_URL="http://localhost:9000/";
 const App = () => {
+  useEffect(()=>{
+  const[data,setData] = useState(null);
+  const[loading,setLoading] = useState(false);
+  const[error,setError] = useState(null);
+
+  const fetchFoodData= async ()=>{
+    setLoading(true);
+    try {
+      const response = await fetch(BASE_URL);
+      const json =await response.json();
+      setData(json);
+      setLoading(false);
+    } catch (error) {
+      setError("Unable to fetch data");
+    }
+  };
+  fetchFoodData();
+  },[]);
+  
   return <Container>
     <TopContainer>
       <div classname="logo">
