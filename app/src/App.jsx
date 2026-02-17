@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components'
+import SearchResult from './component/SearchResult/SearchResult';
 
-const BASE_URL="http://localhost:9000/";
+export const BASE_URL="http://localhost:9000";
 const App = () => {
-  useEffect(()=>{
   const[data,setData] = useState(null);
   const[loading,setLoading] = useState(false);
   const[error,setError] = useState(null);
 
+  useEffect(()=>{
   const fetchFoodData= async ()=>{
     setLoading(true);
     try {
@@ -21,7 +22,7 @@ const App = () => {
   };
   fetchFoodData();
   },[]);
-  
+  console.log(data);
   return <Container>
     <TopContainer>
       <div classname="logo">
@@ -40,11 +41,7 @@ const App = () => {
       <Button>Dinner</Button>
     </FilterContainer>
 
-    <FoodCardsContainer>
-      <FoodCard>
-
-      </FoodCard>
-    </FoodCardsContainer>
+    <SearchResult data={data}/>
   </Container>;
 };
 
@@ -78,18 +75,10 @@ const FilterContainer=styled.div`
   gap: 12px;
   padding-bottom: 40px;
 `;
-const Button=styled.button`
+export const Button=styled.button`
   background: #FF4343;
   border-radius: 5px;
   padding: 6px 12px;
   border: none;
   color: white;
-`;
-const FoodCardsContainer=styled.section`
-  height: calc(100vh - 210px);
-  background-image: url("/bg.png");
-  background-size: cover;
-`;
-const FoodCard=styled.div`
-  
 `;
