@@ -22,14 +22,18 @@ const App = () => {
   };
   fetchFoodData();
   },[]);
-  console.log(data);
-  return <Container>
+  const searchFood=(e)=>{
+    const searchValue = e.target.value;
+  }
+  return (
+    <>
+  <Container>
     <TopContainer>
       <div classname="logo">
         <img src="/logo.svg" alt="logo" />
       </div>
       <div className='search'>
-        <input placeholder='Search Food' />
+        <input onChange={searchFood} placeholder='Search Food' />
 
       </div>
     </TopContainer>
@@ -39,14 +43,17 @@ const App = () => {
       <Button>Breakfast</Button>
       <Button>Lunch</Button>
       <Button>Dinner</Button>
-    </FilterContainer>
-
-    <SearchResult data={data}/>
+    </FilterContainer> 
   </Container>;
+  <SearchResult data={data}/>
+  </>
+  );
+  
+  
 };
 
 export default App;
-const Container=styled.div`
+export const Container=styled.div`
   max-width: 1200px;
   margin: 0 auto;
 `;

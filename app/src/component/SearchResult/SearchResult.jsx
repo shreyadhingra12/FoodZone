@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BASE_URL, Button } from '../../App'
+import { BASE_URL, Button, Container } from '../../App'
 const SearchResult = ({data}) => {
   return (
     <FoodCardsContainer>
+      <Container>
       <FoodCards>
         {data?.map(({name,image,text,price})=>(
             <FoodCard key={name}>
@@ -20,6 +21,7 @@ const SearchResult = ({data}) => {
             </FoodCard>
         ))}
       </FoodCards>
+      </Container>
     </FoodCardsContainer>
   )
 }
